@@ -1,0 +1,187 @@
+// placeholders
+%alinhamentoVertical {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+// css puro
+html {
+   @media (min-width: 600px) {
+      font-size: 1.125em;
+   }
+   @media (min-width: 1000px) {
+      font-size: 1.25em;
+   }
+}
+
+header {
+   padding: 0.5em 0;
+}
+
+.container {
+   margin: 0 auto;
+   max-width: 1200px;
+}
+
+.logo,
+.secao {
+    padding: 0 1%;;
+}
+
+
+.logo,
+.busca
+ {
+  @extend %alinhamentoVertical;
+}
+
+.destaques {
+    margin-top: 1em;
+}
+
+
+
+.secao {
+    width: 100%;
+    float: left;
+    @media (min-width: 600px){
+        width: 50%;
+    }
+    @media (min-width: 1000px ){
+        width: 33%;
+    }
+}
+
+
+.mini {
+    width: 50%;
+    float: left;
+}
+
+
+.menu-principal {
+   @extend %alinhamentoVertical;
+
+   li{
+      float: left;
+   }
+}
+
+
+
+.barra-nav {
+   @extend %alinhamentoVertical;
+
+   margin: 0.4em 0;
+
+   @media (max-width: 600px){
+      background: #f0f0f0;
+      width: 90%;
+      height: 100%;
+      max-width: 320px;
+      margin: 0;
+      padding: 1em;
+      position: fixed;
+      top: 0;
+      left: -95%;
+      transition: left 0.5s ease-out;
+      -webkit-transition: left 0.5s ease-out;
+      z-index: 1;
+      box-shadow: 5px 0px 15px rgba(0,0,0,0.9);
+
+
+      .menu-principal li{
+
+         display: inline-block;
+         width: 100%;
+         padding: 1em 0;
+
+      }
+
+   }
+}
+
+.menu-abrir, .menu-fechar {
+   display: none;
+   @media (max-width: 600px){
+      display: inline-block;
+   }
+}
+
+
+.menu-ativo .barra-nav {
+   left: 0;
+
+}
+
+
+
+.menu-ativo:after {
+
+   @media(max-width: 600px){
+
+      content: '';
+      display: block;
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      background: rgba(0,0,0,0.3);
+
+   }
+}
+
+@media not all and (max-width: 600px) {
+   .menu-abrir,
+   .menu-fechar {
+       display: none;
+   }
+}
+.menu-fechar:before {
+   content: '\00D7';
+   position: absolute;
+   top: 0;
+   left: 0;
+   text-indent: 0;
+}
+.logo img {
+   width: 200px;
+}
+
+.menu-abrir,
+.menu-fechar {
+    background: none;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size: 1.6em;
+    text-indent: -999em;
+}
+
+.menu-abrir {
+    height: 0;
+    width:.75em;
+    padding-top:.125em;
+    border-top: .375em double #000;
+    border-bottom: .125em solid #000;
+
+    vertical-align: middle;
+    margin: 0.5em;
+}
+
+.menu-fechar {
+    position: relative;
+    height: 1em;
+    width: 1em;
+}
+    .menu-fechar:before {
+        content: '\00D7';
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-indent: 0;
+    }
